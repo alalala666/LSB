@@ -85,6 +85,6 @@ class LSB:
         return decoded_string.split('　')[0]
 
 # lsb = LSB
-# lsb.secret(input_path='uploaded_image.png', text="去NCCU Lias 403 找我 謝謝",save_path='uploaded_image2.png')
-# secret_txt = lsb.get_secret(input_path='uploaded_image2.png')
+# lsb.secret(input_path='input_sample.png', text="去NCCU Lias 403 找我 謝謝",save_path='output_sample.png')
+# secret_txt = lsb.get_secret(input_path='output_sample.png')
 # print(secret_txt)
