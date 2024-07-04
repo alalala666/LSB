@@ -4,6 +4,8 @@
 
 This is a Flask-based web application for performing image steganography, allowing users to encrypt and decrypt text messages within image files using the Least Significant Bit (LSB) method.
 
+
+
 ## Features
 
 - **Encrypt Text**: Hide a text message inside an image.
@@ -21,3 +23,4 @@ This is a Flask-based web application for performing image steganography, allowi
    ```bash
    git clone https://github.com/yourusername/image-steganography.git
    cd image-steganography
+
