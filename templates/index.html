@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Steganography</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="file"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .hidden-text {
+            color: transparent;
+            background-color: white;
+        }
+        .hidden-text::selection {
+            color: black;
+            background-color: lightgray;
+        }
+        .alert-custom {
+            background-color: white !important;
+            color: transparent;
+        }
+        .alert-custom .hidden-text::selection {
+            color: black;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Image Steganography</h1>
+        
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <label for="file">Upload Image:</label>
+            <input type="file" name="file" id="file" required>
+            
+            <label for="text">Text to hide (for encryption):</label>
+            <input type="text" name="text" id="text">
+            
+            <label for="operation">Operation:</label>
+            <select name="operation" id="operation" required>
+                <option value="encrypt">Encrypt</option>
+                <option value="decrypt">Decrypt</option>
+            </select>
+            
+            <input type="submit" value="Submit">
+            
+            
+        </form>
+        {% if alert_message %}
+    <div class="alert-custom">
+        <span class="hidden-text">{{ alert_message }}</span>
+            </div>
+        {% else %}
+            <div>
+                <br>
+            </div>
+        {% endif %}
+
+    </div>
+
+
+</body>
+</html>
